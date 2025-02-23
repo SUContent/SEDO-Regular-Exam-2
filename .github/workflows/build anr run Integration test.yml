@@ -1,4 +1,4 @@
-name: build and run Integretion Test
+name: build and run Unit Test
 
 on:
   push:
@@ -22,4 +22,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Run Integation tests
-      run: dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj -- no-build --verbosity normal
+      run: dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj -- no-build --verbosity normal
