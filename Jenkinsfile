@@ -10,13 +10,13 @@ pipeline {
 
         stage('Restore') {
             steps {
-                sh 'dotnet restore'
+                bat 'dotnet restore'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'dotnet build --configuration Release'
+                bat 'dotnet build --configuration Release'
             }
         }
 
@@ -24,12 +24,12 @@ pipeline {
             parallel {
                 stage('Unit Tests') {
                     steps {
-                        sh 'dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --configuration Release --no-build'
+                        bat 'dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --configuration Release --no-build'
                     }
                 }
                 stage('Integration Tests') {
                     steps {
-                        sh 'dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj --configuration Release --no-build'
+                        bat 'dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj --configuration Release --no-build'
                     }
                 }
             }
