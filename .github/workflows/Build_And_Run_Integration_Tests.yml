@@ -1,0 +1,22 @@
+
+name: Build_And_Run_Integration_Tests
+
+on:
+  push:
+    branches: [ "staging" ]
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the Repository
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build and Run the project
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj --no-build --verbosity normal
