@@ -1,7 +1,8 @@
 pipeline {
     agent any
-
-        }
+    stages {
+        
+  
         stage('Restore dependencies') {
             steps {
                 bat 'dotnet restore'
@@ -17,5 +18,5 @@ pipeline {
                 bat 'dotnet test --no-build --verbosity normal'
             }
         }
-    
-
+    }
+}
