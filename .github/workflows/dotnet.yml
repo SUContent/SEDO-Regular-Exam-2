@@ -6,7 +6,6 @@ name: .NET
 on:
   push:
     branches: [ "develop" ]
- 
 
 jobs:
   build:
@@ -25,3 +24,5 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test  Horizons.Tests.Unit/Horizons.Tests.Unit.csproj  --no-build --verbosity normal
+   
+
