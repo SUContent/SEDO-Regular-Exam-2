@@ -1,6 +1,3 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
-
 name: Build and run integration tests
 
 on:
@@ -14,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout repo
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
@@ -23,5 +20,5 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
-    - name: Run integraion tests
-      run: dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj --no-build --verbosity normal
+    - name: Run integration tests
+      run: dotnet test Horizons.Tests.Integration\Horizons.Tests.Integration.csproj --no-build --verbosity normal
