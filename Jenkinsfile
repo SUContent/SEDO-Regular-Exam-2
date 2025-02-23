@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOTNET_VERSION = '8.0.x'
+        DOTNET_VERSION = '8.0.x' 
     }
 
     stages {
@@ -14,8 +14,8 @@ pipeline {
         
         stage('Setup .NET') {
             steps {
-                bat 'dotnet --version || (Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile dotnet-install.ps1; .\dotnet-install.ps1 --version %DOTNET_VERSION%)'
-                bat 'set PATH=%USERPROFILE%\.dotnet;%PATH%'
+                bat 'dotnet --version || (powershell -Command \"Invoke-WebRequest -Uri https://dot.net/v1/dotnet-install.ps1 -OutFile dotnet-install.ps1; & powershell -File dotnet-install.ps1 --version %DOTNET_VERSION%\")'
+                bat 'set PATH=%USERPROFILE%\\.dotnet;%PATH%'
             }
         }
         
