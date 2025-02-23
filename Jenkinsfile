@@ -9,7 +9,7 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('Build application') {
             steps {
                 powershell 'dotnet build --no-restore'
             }
