@@ -7,6 +7,12 @@ pipeline {
     }
 
     stages {
+        stage('Verify .NET Version') {
+            steps {
+                sh 'dotnet --version'
+            }
+        }
+        
         stage('Restore') {
             steps {
                 sh 'dotnet restore'
