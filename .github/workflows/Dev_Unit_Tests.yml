@@ -1,0 +1,27 @@
+
+
+name: Running Unit Tests on DEV
+
+on:
+  push:
+    branches: [ "develop" ]
+  
+
+jobs:
+  Running_Unit_Tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repository Checkout
+      uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build The Application
+      run: dotnet build --no-restore
+    - name: Run Unit Test
+      run: dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --no-build --verbosity normal
