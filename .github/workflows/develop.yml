@@ -1,6 +1,5 @@
 name: Build and Unit Test (Develop)
 
-
 on:
   push:
     branches:
@@ -8,22 +7,22 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '8.0.x' 
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "8.0.x"
 
-    - name: Restore dependencies
-      run: dotnet restore  
+      - name: Restore dependencies
+        run: dotnet restore
 
-    - name: Build the application
-      run: dotnet build --configuration Release 
+      - name: Build the application
+        run: dotnet build --configuration Release
 
-    - name: Run unit tests
-      run: dotnet test --configuration Release --no-build 
+      - name: Run unit tests
+        run: dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --configuration Release --no-build
