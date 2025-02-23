@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build and Restore dependencies') {
             steps {
-                sh 'dotnet restore && dotnet build --no-restore'
+                sh 'ls -la && dotnet restore && dotnet build --no-restore'
             }
         }
         stage('Run All Tests') {
