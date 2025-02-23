@@ -6,7 +6,7 @@ pipeline {
                 sh 'dotnet restore && dotnet build --no-restore'
             }
         }
-        stage('Run Tests') {
+        stage('Run All Tests') {
             steps {
                 sh 'dotnet test --no-build --verbosity normal'
             }
