@@ -8,26 +8,20 @@ pipeline {
     stages {
         stage('Restore Dependencies') {
             steps {
-                bat 'dotnet restore'
+                bat "dotnet restore"
             }
         }
 
         stage('Build') {
             steps {
-                bat 'dotnet build --no-restore'
+                bat "dotnet build --no-restore"
             }
         }
 
-        stage('Run tests') {
+        stage('Run Tests') {
             steps {
-                bat 'dotnet test --no-build --verbosity normal'
+                bat "dotnet test --no-build --verbosity normal"
             }
-        }
-    }
-
-    post {
-        always {
-            // Clean up actions if any (e.g., archiving test results, sending notifications, etc.)
         }
     }
 }
