@@ -1,33 +1,25 @@
 pipeline {
     agent any
 
-    environment {
-        DOTNET_ROOT = '/root/.dotnet'
-        PATH = "${DOTNET_ROOT}:${env.PATH}"
-    }
 
     stages {
-        stage('Verify .NET Version') {
-            steps {
-                sh '/root/.dotnet/dotnet --version'
-            }
-        }
+
 
         stage('Restore') {
             steps {
-                sh '/root/.dotnet/dotnet restore'
+                sh 'dotnet restore'
             }
         }
 
-        stage('Build') {
+           stage('Build') {
             steps {
-                sh '/root/.dotnet/dotnet build --no-restore'
+                sh 'dotnet build --no-restore'
             }
         }
 
-        stage('Test') {
+           stage('Test') {
             steps {
-                sh '/root/.dotnet/dotnet test --no-build --verbosity-normal'
+                sh 'dotnet test --no-build --verbosity-normal'
             }
         }
     }
