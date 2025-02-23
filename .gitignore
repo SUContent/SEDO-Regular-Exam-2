@@ -1,0 +1,6 @@
+# Visual Studio settings
+.vs/
+
+# Build output directories
+[Bb]in/
+[Oo]bj/ 
