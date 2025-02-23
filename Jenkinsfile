@@ -8,7 +8,7 @@ pipeline {
             }
         }
 
-        stage('Build application') {
+        stage('Build') {
             steps {
                 bat 'dotnet build --no-restore'
             }
