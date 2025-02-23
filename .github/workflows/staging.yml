@@ -25,4 +25,4 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: Run integration tests
-        run: dotnet test --configuration Release --no-build
+        run: dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj --configuration Release --no-build
