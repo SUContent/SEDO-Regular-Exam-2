@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        DOTNET_ROOT = '/root/.dotnet'
+        PATH = "/root/.dotnet:$PATH"
+    }
+
     stages {
         stage('Restore') {
             steps {
