@@ -1,29 +1,23 @@
 pipeline {
     agent any
-    
+
     stages {
-        stage('Checkout') {
+         stage('Restore dependencies ') {
             steps {
-                echo 'Checking out source code...'
+                bat 'dotnet restore'
+            }
+        }
+       
+        stage('Building ') {
+            steps {
+                bat 'dotnet build'
+            }
+        }
+        stage('Testing ') {
+            steps {
+                bat 'dotnet test'
             }
         }
         
-        stage('Build') {
-            steps {
-                echo 'Building the application...'
-            }
-        }
-        
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-            }
-        }
-        
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
-            }
-        }
     }
 }
