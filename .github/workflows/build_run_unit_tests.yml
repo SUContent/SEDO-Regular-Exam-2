@@ -23,4 +23,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Run unit tests
-      run: dotnet Horizons.Tests.Unit\Horizons.Tests.Unit.csproj --no-build --verbosity normal
+      run: dotnet Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --no-build --verbosity normal
