@@ -1,12 +1,6 @@
 pipeline {
     agent any
 
-    triggers {
-        githubPush(
-            branches: ['feature-ci-pipeline']
-        )
-    }
-
     environment {
         DOTNET_VERSION = '8.0.x'
     }
