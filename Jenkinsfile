@@ -97,7 +97,7 @@ pipeline {
                         script {
                             echo 'Running Integration Tests...'
                         }
-                        bat 'dotnet test Horizons.Tests.Integration/Horizons.Test.Integration.csproj --no-build --verbosity normal || exit 1'
+                        bat 'dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj --no-build --verbosity normal || exit 1'
                     }
                 }
             }
