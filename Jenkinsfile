@@ -1,20 +1,6 @@
 pipeline {
     agent any
-
-    environment {
-        DOTNET_ROOT = '/root/.dotnet'
-        PATH = "${DOTNET_ROOT}:${env.PATH}"
-    }
-
     stages {
-
-        stage('Verify .NET VERSION') {
-            steps {
-                sh 'dotnet --version'
-            }
-        }
-
-
         stage('Restore') {
             steps {
                 sh 'dotnet restore'
