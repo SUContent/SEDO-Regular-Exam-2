@@ -1,13 +1,10 @@
-# This workflow will build a .NET project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: .NET
+name: Build and run unit tests
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "develop" ]
+  
 
 jobs:
   build:
@@ -15,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: check the repository
     - uses: actions/checkout@v4
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
@@ -25,4 +23,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test Horizons\Horizons.Tests.Unit\Horizons.Tests.Unit.csproj --no-build --verbosity normal
