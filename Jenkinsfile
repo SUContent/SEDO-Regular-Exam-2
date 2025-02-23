@@ -9,27 +9,25 @@ pipeline {
     stages {
         stage('Verify .NET Version') {
             steps {
-                sh 'echo $PATH'
-                sh 'which dotnet'
-                sh 'dotnet --info'
+                sh '/root/.dotnet/dotnet --version'
             }
         }
 
         stage('Restore') {
             steps {
-                sh 'dotnet restore'
+                sh '/root/.dotnet/dotnet restore'
             }
         }
 
-           stage('Build') {
+        stage('Build') {
             steps {
-                sh 'dotnet build --no-restore'
+                sh '/root/.dotnet/dotnet build --no-restore'
             }
         }
 
-           stage('Test') {
+        stage('Test') {
             steps {
-                sh 'dotnet test --no-build --verbosity-normal'
+                sh '/root/.dotnet/dotnet test --no-build --verbosity-normal'
             }
         }
     }
