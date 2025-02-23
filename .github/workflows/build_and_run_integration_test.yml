@@ -5,7 +5,7 @@ on:
     branches: [ "staging" ]
 
 jobs:
-  build_run_unit_test:
+  build_run_staging_test:
 
     runs-on: ubuntu-latest
 
