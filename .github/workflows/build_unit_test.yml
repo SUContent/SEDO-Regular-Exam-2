@@ -20,4 +20,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Unit Tests
-      run: dotnet test Horizons.Test.Unit/Horizons.Test.Unit.csproj --no-build --verbosity normal
+      run: dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --no-build --verbosity normal
