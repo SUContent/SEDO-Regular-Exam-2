@@ -7,7 +7,7 @@ on:
   push:
     branches: [ "staging" ]
 jobs:
-  build:
+  build_integration_tests:
 
     runs-on: ubuntu-latest
 
@@ -27,4 +27,4 @@ jobs:
       run: dotnet build --no-restore
       
     - name: Test
-      run: dotnet test Horizons.Tests.Unit --no-build --verbosity normal
+      run: dotnet test Horizons.Tests.Integration --no-build --verbosity normal
