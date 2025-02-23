@@ -1,4 +1,4 @@
-name: Build & Test .NET App
+name: Build & Run Unit Tests for .NET App
 
 on:
   push:
@@ -21,4 +21,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --no-build --verbosity normal
