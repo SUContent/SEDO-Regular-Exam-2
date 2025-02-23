@@ -1,0 +1,24 @@
+name: Push to develop. Build the project. Run the unit tests.
+
+on:
+  push:
+    branches: [ "develop" ]
+
+jobs:
+  build_run-unit-tests:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup .NET (8)
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Run Unit Test
+      run: dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --no-build --verbosity normal
