@@ -1,6 +1,18 @@
 pipeline {
     agent any
-      
+
+    
+      environment {
+            DOTNET_VERSION = "8.0.x"
+        }
+        
+        stages {
+            stage('Checkout') {
+                steps {
+                    checkout scm
+                }
+            }
+        
         stage('Restore dependencies') {
             steps {
                 bat 'dotnet restore'
