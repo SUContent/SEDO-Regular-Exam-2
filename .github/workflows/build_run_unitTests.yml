@@ -1,0 +1,26 @@
+# Description:
+# This workflow (GitHub action) will build the .net app Horizons and run Unit Tests (a total of 4) on it
+
+name: Build and run Unit Tests
+
+on:
+  push:
+    branches: [ "develop" ]
+
+jobs:
+  build_run_unit_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+    - name: Restore all dependencies
+      run: dotnet restore
+    - name: Build the project (Horizons)
+      run: dotnet build --no-restore
+    - name: Execute Unit Tests
+      run: dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --no-build --verbosity normal
