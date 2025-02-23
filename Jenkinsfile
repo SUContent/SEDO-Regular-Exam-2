@@ -1,11 +1,9 @@
 pipeline {
-    agent any
-
-    environment {
-        DOTNET_ROOT = 'C:\\Program Files\\dotnet'
-        PATH = "C:\\Program Files\\dotnet;${env.PATH}"
+    agent {
+        docker {
+            image 'mcr.microsoft.com/dotnet/sdk:8.0'
+        }
     }
-
 
     stages {
 
