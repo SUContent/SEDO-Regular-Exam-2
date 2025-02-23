@@ -6,7 +6,7 @@ name: Run Integration Tests
 on:
   push:
     branches:
-      - develop
+      - staging
 
 jobs:
   unit-tests:
