@@ -1,11 +1,18 @@
 pipeline {
-    agent {
-        docker {
-            image 'mcr.microsoft.com/dotnet/sdk:8.0'
-        }
+    agent any
+
+    environment {
+        DOTNET_ROOT = '/root/.dotnet'
+        PATH = "${DOTNET_ROOT}:${env.PATH}"
     }
 
     stages {
+
+        stage('Verify .NET VERSION') {
+            steps {
+                sh 'dotnet --version'
+            }
+        }
 
 
         stage('Restore') {
