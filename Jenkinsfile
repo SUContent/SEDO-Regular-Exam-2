@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'ubuntu-latest' }
+    agent any
 
     environment {
         DOTNET_VERSION = '8.0.x'
