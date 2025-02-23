@@ -11,7 +11,7 @@ pipeline {
     steps {
         script {
             // Download .NET SDK version 8.0.0
-            bat "curl -sSL https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.0/dotnet-sdk-8.0.0-linux-x64.tar.gz -o dotnet-sdk-8.0.0-linux-x64.tar.gz"
+            sh "curl -sSL https://dotnetcli.azureedge.net/dotnet/Sdk/8.0.0/dotnet-sdk-8.0.0-linux-x64.tar.gz -o dotnet-sdk-8.0.0-linux-x64.tar.gz"
             
             // Check if the downloaded file is a tarball (optional but useful for debugging)
             sh "file dotnet-sdk-8.0.0-linux-x64.tar.gz"
