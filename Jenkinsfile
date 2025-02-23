@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOTNET_ROOT = '/root/.dotnet'
-        PATH = "/root/.dotnet:$PATH"
+        PATH = "${DOTNET_ROOT}:${env.PATH}"
     }
 
     stages {
