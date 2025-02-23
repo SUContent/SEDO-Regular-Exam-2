@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Setup .NET environment') {
             steps {
-                sh 'apt-get update && apt-get install -y dotnet-sdk-8.0 && dotnet --version'
+                sh 'sudo apt-get update && sudo apt-get install -y dotnet-sdk-8.0 && dotnet --version'
             }
         }
         stage('Build and Restore dependencies') {
