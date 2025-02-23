@@ -13,17 +13,18 @@ pipeline {
         }
 
         stage('Setup .NET') {
-    steps {
-        bat """
-        echo Checking if .NET is installed...
-        dotnet --version || (
-            echo .NET not found, installing...
-            curl -L https://dot.net/v1/dotnet-install.ps1 -o dotnet-install.ps1
-            powershell -ExecutionPolicy Bypass -File dotnet-install.ps1 -Version 8.0
-        )
-        """
-    }
-}
+            steps {
+                bat """
+                echo Checking if .NET is installed...
+                dotnet --version || (
+                    echo .NET not found, installing...
+                    curl -L https://dot.net/v1/dotnet-install.ps1 -o dotnet-install.ps1
+                    powershell -ExecutionPolicy Bypass -File dotnet-install.ps1 -Version 8.0
+                )
+                """
+            }
+        }
+
         stage('Restore Dependencies') {
             steps {
                 bat 'dotnet restore'
@@ -38,7 +39,7 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                bat 'dotnet test --no-build --verbosity normal'
+                bat 'dotnet test --no-build --verbosity normal --logger "trx;LogFileName=TestResults.trx" --results-directory TestResults/'
             }
         }
     }
