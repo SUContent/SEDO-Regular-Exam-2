@@ -1,12 +1,11 @@
-# Example: Keeping the develop version entirely
-name: Develop CI
+name: StagingCI
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ staging ]
 
 jobs:
-  build-and-test-develop:
+  build-and-test-staging:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,5 +23,5 @@ jobs:
       - name: Build
         run: dotnet build Horizons.sln --configuration Release
 
-      - name: Run Unit Tests
-        run: dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --configuration Release
+      - name: Run Integration Tests
+        run: dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj --configuration Release

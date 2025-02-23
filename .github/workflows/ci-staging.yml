@@ -1,12 +1,11 @@
-# Example: Keeping the develop version entirely
-name: Develop CI
+name: Staging CI
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ staging ]
 
 jobs:
-  build-and-test-develop:
+  build-and-test-staging:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +15,7 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '6.0.x'
 
       - name: Restore
         run: dotnet restore Horizons.sln
@@ -24,5 +23,5 @@ jobs:
       - name: Build
         run: dotnet build Horizons.sln --configuration Release
 
-      - name: Run Unit Tests
-        run: dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --configuration Release
+      - name: Run Integration Tests
+        run: dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj --configuration Release
