@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout the repo') {
             steps {
-                sh 'git clone git@github.com:krasezzza/horizons-exam.git'
+                sh 'git clone https://github.com/krasezzza/horizons-exam.git'
             }
         }
         stage('Setup .NET environment') {
