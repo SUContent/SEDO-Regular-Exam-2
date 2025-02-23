@@ -3,7 +3,7 @@ name: Integration Tests
 on:
   push:
     branches:
-      - develop
+      - staging
 
 jobs:
   build-and-test:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '8.0.x'
 
       - name: Restore Dependencies
         run: dotnet restore
@@ -25,4 +25,4 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Run Unit Tests
-        run: dotnet test Horizons.Tests.Integration\Horizons.Tests.Integration.csproj --nobuild
+        run: dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj
