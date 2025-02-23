@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Setup .NET environment') {
+            steps {
+                sh 'apt-get update && apt-get install -y dotnet-sdk-8.0 && dotnet --version'
+            }
+        }
         stage('Build and Restore dependencies') {
             steps {
                 sh 'dotnet restore && dotnet build --no-restore'
