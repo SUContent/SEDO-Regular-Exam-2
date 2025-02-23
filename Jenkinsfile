@@ -1,9 +1,5 @@
 pipeline {
     agent any
-
-    environment {
-        PATH = "C:\Program Files\dotnet"
-    }
     
     stages {
 
