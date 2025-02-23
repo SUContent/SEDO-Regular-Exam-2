@@ -5,8 +5,7 @@ name: .NET
 
 on:
   push:
-    branches: [ "staging" ]
-  
+    branches: [ "develop", "staging" ]  # Include both 'develop' and 'staging' branches
 
 jobs:
   build:
@@ -24,4 +23,9 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj --no-build --verbosity normal
+      run: |
+        if [[ $GITHUB_REF == 'refs/heads/develop' ]]; then
+          dotnet test Horizons.Tests.Unit/Horizons.Tests.Unit.csproj --no-build --verbosity normal
+        elif [[ $GITHUB_REF == 'refs/heads/staging' ]]; then
+          dotnet test Horizons.Tests.Integration/Horizons.Tests.Integration.csproj --no-build --verbosity normal
+        fi
