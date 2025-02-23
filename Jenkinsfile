@@ -4,18 +4,18 @@ pipeline {
     stages {
         stage('Restore Dependencies') {
             steps {
-                bat 'dotnet restore'
+                sh 'dotnet restore'
             }
         }
         stage('Build') {
             steps {
-                bat 'dotnet build --no-restore'
+                sh 'dotnet build --no-restore'
             }
         }
         stage('Run Tests') {
             steps {
                 // Adjust the path if needed. Using forward slashes for Linux.
-                bat 'dotnet test --no-build --verbosity normal'
+                sh 'dotnet test --no-build --verbosity normal'
             }
         }
     }
