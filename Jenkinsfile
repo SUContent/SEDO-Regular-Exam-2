@@ -3,7 +3,7 @@ pipeline {
 
     stages {
 
-        stage('Restore Dependencies') {
+        stage('Restore Dependencies Test Change') {
             steps {
                 sh 'dotnet restore'
             }
