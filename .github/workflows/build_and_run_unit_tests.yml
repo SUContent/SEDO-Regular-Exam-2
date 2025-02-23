@@ -5,9 +5,7 @@ name: Build and run unit tests
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "develop" ]
 
 jobs:
   build_and_run_unit_tests:
