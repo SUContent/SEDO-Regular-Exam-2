@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
 
+// comment
 namespace Horizons.Data
 {
     public class ApplicationDbContext : IdentityDbContext
