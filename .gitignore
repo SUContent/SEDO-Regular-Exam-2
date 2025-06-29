@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Horizons/obj
+/.vs/Horizons/FileContentIndex
+/Horizons.Data/obj
+/Horizons.Tests.Integration
+/Horizons.Tests.Unit
